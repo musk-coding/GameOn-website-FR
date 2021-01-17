@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Reservation</title>
+    <title>GameOn</title>
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <link rel="stylesheet" href="modal.css" />
     <link
@@ -54,10 +54,11 @@
           <span class="close"></span>
           <div class="modal-body">
             <form
+              id="form"
               name="reserve"
               action="index.html"
               method="get"
-              onsubmit="return validate();"
+              onsubmit="return validate(event);"
             >
               <div class="formData">
                 <label for="first">Prénom</label><br />
@@ -184,10 +185,10 @@
                 <input
                   class="checkbox-input"
                   type="checkbox"
-                  id="checkbox1"
+                  id="conditions"
                   checked
                 />
-                <label class="checkbox2-label" for="checkbox1">
+                <label class="checkbox2-label" for="conditions">
                   <span class="checkbox-icon"></span>
                   J'ai lu et accepté les conditions d'utilisation.
                 </label>
