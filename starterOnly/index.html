@@ -60,7 +60,7 @@
               method="get"
               onsubmit="return validate(event);"
             >
-              <div class="formData">
+              <div class="formData" id="firstNameFormData">
                 <label for="first">Prénom</label><br />
                 <input
                   class="text-control"
@@ -68,18 +68,21 @@
                   id="first"
                   name="first"
                   minlength="2"
-                /><br />
+                />
+                <br />
               </div>
-              <div class="formData">
+              <div class="formData" id="lastNameFormData">
                 <label for="last">Nom</label><br />
                 <input
                   class="text-control"
                   type="text"
                   id="last"
                   name="last"
-                /><br />
+                  minlength="2"
+                />
+                <br />
               </div>
-              <div class="formData">
+              <div class="formData" id="mailFormData">
                 <label for="email">E-mail</label><br />
                 <input
                   class="text-control"
@@ -88,7 +91,7 @@
                   name="email"
                 /><br />
               </div>
-              <div class="formData">
+              <div class="formData" id="birthDateFormData">
                 <label for="birthdate">Date de naissance</label><br />
                 <input
                   class="text-control"
@@ -97,7 +100,7 @@
                   name="birthdate"
                 /><br />
               </div>
-              <div class="formData">
+              <div class="formData" id="quantityFormData">
                 <label for="quantity"
                   >À combien de tournois GameOn avez-vous déjà participé
                   ?</label
@@ -112,7 +115,7 @@
                 />
               </div>
               <p class="text-label">Quelles villes ?</p>
-              <div class="formData">
+              <div class="formData" id="locationFormData">
                 <input
                   class="checkbox-input"
                   type="radio"
@@ -181,7 +184,7 @@
                 >
               </div>
 
-              <div class="formData">
+              <div class="formData" id="conditionsFormData">
                 <input
                   class="checkbox-input"
                   type="checkbox"

@@ -16,9 +16,40 @@ const form = document.getElementById("form");
 const firstName = document.getElementById("first");
 const lastName = document.getElementById("last");
 const email = document.getElementById("email");
+const birthDate = document.getElementById("birthdate");
 const quantity = document.getElementById("quantity");
 const checkboxes = document.querySelectorAll('input[name="location"]');
 const conditionsCheckbox = document.getElementById("conditions");
+
+const firstNameFormData = document.getElementById("firstNameFormData");
+firstNameFormData.setAttribute(
+  "data-error",
+  "Veuillez entrer 2 caractères ou plus pour le champ du prénom."
+);
+const lastNameFormData = document.getElementById("lastNameFormData");
+lastNameFormData.setAttribute(
+  "data-error",
+  "Veuillez entrer 2 caractères ou plus pour le champ du nom."
+);
+const mailFormData = document.getElementById("mailFormData");
+mailFormData.setAttribute(
+  "data-error",
+  "Veuillez entrer une adresse électronique valide."
+);
+const birthDateFormData = document.getElementById("birthDateFormData");
+birthDateFormData.setAttribute(
+  "data-error",
+  "Vous devez entrer votre date de naissance."
+);
+const quantityFormData = document.getElementById("quantityFormData");
+quantityFormData.setAttribute("data-error", "Vous devez entrer une quantité.");
+const locationFormData = document.getElementById("locationFormData");
+locationFormData.setAttribute("data-error", "Vous devez choisir une option.");
+const conditionsFormData = document.getElementById("conditionsFormData");
+conditionsFormData.setAttribute(
+  "data-error",
+  "Vous devez vérifier que vous acceptez les termes et conditions."
+);
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
@@ -48,32 +79,37 @@ function validate(e) {
 
   if (!firstName.value || firstName.value.length < 2) {
     valid = false;
-    console.log("firstname invalid");
+    firstNameFormData.setAttribute("data-error-visible", true);
   }
 
   if (!lastName.value || lastName.value.length < 2) {
     valid = false;
-    console.log("lastName invalid");
+    lastNameFormData.setAttribute("data-error-visible", true);
   }
 
   if (!validateEmail(email.value)) {
     valid = false;
-    console.log("email invalid");
+    mailFormData.setAttribute("data-error-visible", true);
+  }
+
+  if (birthDate.value === "") {
+    valid = false;
+    birthDateFormData.setAttribute("data-error-visible", true);
   }
 
   if (!quantity.value || isNaN(quantity.value)) {
     valid = false;
-    console.log("quantity invalid");
+    quantityFormData.setAttribute("data-error-visible", true);
   }
 
   if (checkedLocations.length === 0) {
     valid = false;
-    console.log("checkedLocations invalid");
+    locationFormData.setAttribute("data-error-visible", true);
   }
 
   if (!conditionsCheckbox.checked) {
     valid = false;
-    console.log("conditionsCheckbox invalid");
+    conditionsFormData.setAttribute("data-error-visible", true);
   }
 
   if (!valid) {
