@@ -552,3 +552,20 @@ footer {
 .close-success:after {
   background-color: #155724;
 }
+
+@media only screen and (max-width: 500px) {
+  .close-success:before,
+  .close-success:after {
+    background-color: #155724;
+    position: absolute;
+    left: 15px;
+    content: " ";
+    height: 15px;
+    width: 2px;
+  }
+
+  .close-success {
+    top: -2px;
+    right: -8px;
+  }
+}
