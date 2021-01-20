@@ -11,7 +11,7 @@ function editNav() {
 const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".formData");
-const closeSpan = document.querySelector(".close");
+const closeSpan = document.getElementById("closeModal");
 const form = document.getElementById("form");
 const firstName = document.getElementById("first");
 const lastName = document.getElementById("last");
@@ -20,6 +20,8 @@ const birthDate = document.getElementById("birthdate");
 const quantity = document.getElementById("quantity");
 const checkboxes = document.querySelectorAll('input[name="location"]');
 const conditionsCheckbox = document.getElementById("conditions");
+const successAlert = document.getElementById("successMsg");
+const closeSuccess = document.getElementById("closeSuccess");
 
 const firstNameFormData = document.getElementById("firstNameFormData");
 firstNameFormData.setAttribute(
@@ -65,6 +67,20 @@ closeSpan.addEventListener("click", closeModal);
 // Close modal form
 function closeModal() {
   modalbg.style.display = "none";
+}
+
+// Close success message event
+closeSuccess.addEventListener("click", closeSucess);
+
+// Close success message
+function closeSucess() {
+  successAlert.style.display = "none";
+  sessionStorage.removeItem("showSuccess");
+}
+
+// Conditionally show success message
+if (sessionStorage.getItem("showSuccess")) {
+  successAlert.style.display = "block";
 }
 
 function validate(e) {
@@ -113,8 +129,10 @@ function validate(e) {
   }
 
   if (!valid) {
-    console.log("Invalid!");
     e.preventDefault();
+  } else {
+    successAlert.style.display = "block";
+    sessionStorage.setItem("showSuccess", true);
   }
 }
 
